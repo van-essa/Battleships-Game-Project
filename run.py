@@ -41,3 +41,46 @@ def print_board(board):
     for row in board:
       print(row_number, "|_|".join(row))
         row_number += 1
+
+# This Code was taken from Mavens YouTube video, provided in README
+def create_ships(board):
+    """
+    A random integer between 0 and 4 for ship_row and ship_column is created.
+    It checks if "@" is already on the board, if so runs randomint until.
+    there is an available space. When there is an available space update with "@".
+    """
+    for ship in range(3):
+        ship_row, ship_column = randint(0, 4), randint(0, 4)
+        while board[ship_row][ship_column] == "@":
+            ship_row, ship_column = randint(0, 4), randint(0, 4)
+        board[ship_row][ship_column] = "@"
+
+def computer_guess(board):
+    """
+    A random integer between 0 and 4 for computer_row and computer_column
+    is created. It checks if "-" or "X" is already on the board. If so, it 
+    runs randomint until there is an available space. If computer_row and 
+    computer_column is "@", it prints a message to the user to say their 
+    ship has been hit and updates board with "X". Else the computer_row 
+    and computer_column finds a blank space, and prints a message to the 
+    user to say the computer has missed and updates the board with "-"
+    """
+    global computer_score
+    computer_row, computer_column = randint(0, 4), randint(0, 4)
+    if (USER_BOARD[computer_row][computer_column] == "-" or
+            USER_BOARD[computer_row][computer_column] == "X"):
+        computer_row = randint(0, 4)
+        computer_column = randint(0, 4)
+    elif USER_BOARD[computer_row][computer_column] == "@":
+        prYellow(f"{username}, your battleship has been hit!")
+        prYellow(
+            f"The computer guessed row {computer_row +1}"
+            f" and column {numbers_to_letters[computer_column]}")
+        USER_BOARD[computer_row][computer_column] = "X"
+        computer_score += 1
+    else:
+        prYellow(f"Phew {username}, the computer missed!")
+        prYellow(
+            f"The computer guessed row {computer_row +1}"
+            f" and column {numbers_to_letters[computer_column]}")
+        USER_BOARD[computer_row][computer_column] = "-"
