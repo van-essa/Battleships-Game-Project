@@ -167,3 +167,92 @@ def main():
     while username == "" or username == " ":
         print("Sorry, please can you enter a name.")
         username = input("Please enter your name:\n")
+
+"""
+If the values entered are not in continue_playing_options, an error 
+message will be printed.
+"""
+def validate_continue_playing(values):
+    try:
+        if values not in continue_playing_options:
+            print(
+                f"Please enter y/n, you provided '{values}'."
+                )
+    except:
+        print(f"Sorry y/n required, please try again.\n")
+        return False
+
+    return True
+
+
+# This Code was taken from Mavens YouTube video, provided in README
+# Additional statements added such us the if the computer wind and 
+# continue playing options
+"""
+Runs the game with 10 turns
+When turns = 0 game is over
+"""
+def run_game():
+    turns = 10
+    global user_score
+
+    while turns > 0:
+        prGreen(f"{username}'s Board")
+        print_board(USER_BOARD)
+        prYellow("Computer's Board")
+        print_board(GUESS_BOARD)
+        row, column = get_ship_location()
+        if GUESS_BOARD[row][column] == "-" or GUESS_BOARD[row][column] == "X":
+            prRed("You have already guessed that")
+        elif HIDDEN_BOARD[row][column] == "@":
+            prGreen(f"Congratulations {username}, you have hit the battleship")
+            GUESS_BOARD[row][column] = "X"
+            turns -= 1
+            computer_guess(USER_BOARD)
+            user_score += 1
+        else:
+            prGreen(f"Sorry {username}, you missed")
+            GUESS_BOARD[row][column] = "-"
+            turns -= 1
+            computer_guess(USER_BOARD)
+        if count_hit_ships(GUESS_BOARD) == 5:
+            prGreen(
+                f"Congratulations {username}, "
+                "you have sunk all of the battleships")
+            print("The game is now over")
+            break
+        prRed("You have " + str(turns) + " turns remaining")
+        prLightPurple(f"{username}'s Score: {user_score}"
+                 f" Computer's Score: {computer_score}")
+        if turns == 0:
+            prGreen(
+                f"Sorry {username}, you ran out of turns, the game is over")
+            break
+        if count_hit_ships(USER_BOARD) == 5:
+            prGreen(
+                f"Sorry {username}, the computer"
+                " has sunk all of your battleships")
+            break
+        if count_hit_ships(GUESS_BOARD) < 5:
+            continue_playing = input(
+                    "Do you want to continue playing? y/n\n").lower()
+            while continue_playing not in continue_playing_options:
+                validate_continue_playing(continue_playing)
+                continue_playing = input(
+                    "Do you want to continue playing? y/n\n").lower()
+            if continue_playing == "y" or continue_playing == "yes":
+                print(
+                    "You have decided to continue playing the game.")
+                continue
+            elif continue_playing == "n" or continue_playing == "no":
+                print(
+                    "You have decided to finish playing, the game is now over")
+                break
+            else:
+                print("Sorry, please can you enter y/n")
+                continue_playing = input(
+                    "Do you want to continue playing? y/n \n")
+
+
+main()
+run_game()
