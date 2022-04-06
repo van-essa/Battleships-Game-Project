@@ -31,10 +31,10 @@ def prYellow(skk): print("\033[93m {}\033[00m" .format(skk))
 def prLightPurple(skk): print("\033[94m {}\033[00m" .format(skk))
 
 # This Code was taken from Mavens YouTube video, provided in README
+"""
+Creates a board with letters for the columns and numbers for the rows
+"""
 def print_board(board):
-    """
-    Creates a board with letters for the columns and numbers for the rows
-    """
     print("  A B C D E F G H")
     print("  ---------------")
     row_number = 1
@@ -43,28 +43,28 @@ def print_board(board):
         row_number += 1
 
 # This Code was taken from Mavens YouTube video, provided in README
+"""
+A random integer between 0 and 4 for ship_row and ship_column is created.
+It checks if "@" is already on the board, if so runs randomint until.
+there is an available space. When there is an available space update with "@".
+"""
 def create_ships(board):
-    """
-    A random integer between 0 and 4 for ship_row and ship_column is created.
-    It checks if "@" is already on the board, if so runs randomint until.
-    there is an available space. When there is an available space update with "@".
-    """
     for ship in range(3):
         ship_row, ship_column = randint(0, 4), randint(0, 4)
         while board[ship_row][ship_column] == "@":
             ship_row, ship_column = randint(0, 4), randint(0, 4)
         board[ship_row][ship_column] = "@"
 
+"""
+A random integer between 0 and 4 for computer_row and computer_column
+is created. It checks if "-" or "X" is already on the board. If so, it 
+runs randomint until there is an available space. If computer_row and 
+computer_column is "@", it prints a message to the user to say their 
+ship has been hit and updates board with "X". Else the computer_row 
+and computer_column finds a blank space, and prints a message to the 
+user to say the computer has missed and updates the board with "-"
+"""
 def computer_guess(board):
-    """
-    A random integer between 0 and 4 for computer_row and computer_column
-    is created. It checks if "-" or "X" is already on the board. If so, it 
-    runs randomint until there is an available space. If computer_row and 
-    computer_column is "@", it prints a message to the user to say their 
-    ship has been hit and updates board with "X". Else the computer_row 
-    and computer_column finds a blank space, and prints a message to the 
-    user to say the computer has missed and updates the board with "-"
-    """
     global computer_score
     computer_row, computer_column = randint(0, 4), randint(0, 4)
     if (USER_BOARD[computer_row][computer_column] == "-" or
@@ -86,13 +86,13 @@ def computer_guess(board):
         USER_BOARD[computer_row][computer_column] = "-"
 
 # This Code was taken from Mavens YouTube video, provided in README
+"""
+It asks the user to input the guesses for ship row and ship column locations
+and checks the input data for row is in range "12345" and for column is in range 
+"ABCDE". Then, returns int for row - 1 to match index number, converts letters 
+to numbers for column index number.
+"""
 def get_ship_location():
-    """
-    It asks the user to input the guesses for ship row and ship column locations
-    and checks the input data for row is in range "12345" and for column is in range 
-    "ABCDE". Then, returns int for row - 1 to match index number, converts letters 
-    to numbers for column index number.
-    """
     row = input("Please enter a ship row 1-5\n")
     while row not in "12345" or len(row) > 1 or row == "":
         validate_row(row)
@@ -105,10 +105,10 @@ def get_ship_location():
         column = input("Please enter a ship column A-E\n").upper()
     return int(row) - 1, letters_to_numbers[column]
 
+"""
+If values entered not an interger between 1-5, an error message will be printed.
+"""
 def validate_row(values):
-    """
-    If values entered not an interger between 1-5, an error message will be printed.
-    """
     try:
         [int(value) for value in values]
         if int(values) < 1 or int(values) > 5:
@@ -122,10 +122,10 @@ def validate_row(values):
     return True
 
 
+"""
+If values entered not in letters_to_numbers, an error message will be printed.
+"""
 def validate_column(values):
-    """
-    If values entered not in letters_to_numbers, an error message will be printed.
-    """
     try:
         if values not in letters_to_numbers:
             print(
@@ -136,3 +136,34 @@ def validate_column(values):
         return False
 
     return True
+
+# This Code was taken from Mavens YouTube video, provided in README
+"""
+Counts how many ships on the board have been hit "X"
+"""
+def count_hit_ships(board):
+    count = 0
+    for row in board:
+        for column in row:
+            if column == "X":
+                count += 1
+    return count
+
+
+# print hidden board for testing, needs removing before submission
+# print("Hidden Board")
+# print_board(HIDDEN_BOARD)
+"""
+Run all start up functions
+"""
+def main():
+    create_ships(HIDDEN_BOARD)
+    create_ships(USER_BOARD)
+
+    print("Welcome to Battleships")
+    print("You have 10 turns to find all of the battleships")
+    global username
+    username = input("Please enter your name:\n")
+    while username == "" or username == " ":
+        print("Sorry, please can you enter a name.")
+        username = input("Please enter your name:\n")
