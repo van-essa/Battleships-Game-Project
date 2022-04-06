@@ -84,3 +84,23 @@ def computer_guess(board):
             f"The computer guessed row {computer_row +1}"
             f" and column {numbers_to_letters[computer_column]}")
         USER_BOARD[computer_row][computer_column] = "-"
+
+# This Code was taken from Mavens YouTube video, provided in README
+def get_ship_location():
+    """
+    It asks the user to input the guesses for ship row and ship column locations
+    and checks the input data for row is in range "12345" and for column is in range 
+    "ABCDE". Then, returns int for row - 1 to match index number, converts letters 
+    to numbers for column index number.
+    """
+    row = input("Please enter a ship row 1-5\n")
+    while row not in "12345" or len(row) > 1 or row == "":
+        validate_row(row)
+        print("Please enter a valid row number")
+        row = input("Please enter a ship row 1-5\n")
+    column = input("Please enter a ship column A-E\n").upper()
+    while column not in "ABCDE" or len(column) > 1 or column == "":
+        validate_column(column)
+        print("Please enter a valid column")
+        column = input("Please enter a ship column A-E\n").upper()
+    return int(row) - 1, letters_to_numbers[column]
