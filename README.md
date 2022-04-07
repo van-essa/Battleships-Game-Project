@@ -47,50 +47,41 @@ Ultimate Battleships was created using Python, where the user challenges the com
 
 ## Features
 ### Existing Features
-* Random board generation for user board which places ships on the board
-* Random board generation for hidden board which places ships on a board which the user cannot see
-* Play against the computer
-* Accepts user input for Name, Row and Column
-* Maintains scores
-* Input validation and error-checking
-    * The user cannot enter coordinates outside of the grid
-    * The user cannot enter the same coordinates twice
-    * The user must enter a number between 1-8 for rows
-    * The user must enter a letter between A-H for columns
-* Randomly creates the computer guesses
+A random board is displayed for the user's board and place their ships. A random board is shown with hidden ships for the computer, so the user cannot visualise it. Then, the user can start playing aginst the computer and has to add their Name, Rows Number and Column Letter. Then the computer randomly chooses its coordination. During the game, the scores are maintained, and validation and error-checking are displayed whiles:
+- The User cannot enter guesses outside of the board
+- The User cannot enter the same guesses twice
+- The User must enter a number between 1-8 for rows
+- The User must enter a letter between A-H for columns
 
+In this game of Ultimate Battleships, both the player and computer have up to ten turns to find the opponent's five battleships. Whoever manages to sink the five battleships before ten turns is the winner. If no one syncs them all in ten turns, then the game is over, and there is no winner.
 
-In this game of Battleships, the player and computer each have up to 10 turns to find the opponents 5 battleships, and the winner if whoever finds all 5 first.
+There are three boards, where two of them are displayed. The Player's Board and the Computer's Board. One hidden board holds the position of the computer's battleships the player needs to find.
 
-There are three boards, the Player's Board and the Computer's Board which are both displayed, and a hidden board which holds the position of the computer's battleships which the player needs to find.
+Each board has 8 rows and 8 columns; the rows are 1 to 8, the columns are A to H, and each cell contains a space.
 
-Each  board has 8 rows and 8 columns, the rows are 1 to 8, and the columns are A to H, and each cell contains a space.
+Each battleship occupies one cell, and before the game starts, the computer generates the position of the five battleships. The player and computer need to find them to win and populate the player and hidden boards with them by replacing the space with a "@". The computer board is left blank so that the player cannot see the choices of the computer.
 
+The player enters a ship row and column, and the computer generates a ship row and column. 
 
-Each battleship occupies one cell, and before the game starts, the computer generates the position of 5 battleships that the player and computer need to find to win, and populates the player and hidden boards with them by replacing the space with a "@". The computer board is left blank so that the player cannot see the computers choices.
+If the player row and column do not find a battleship on the hidden computer board, the message "Oh, no, you missed!" is displayed. The cell of the displayed computer board is populated with a -.
 
-The Player enters a ship row and column, and the computer generates a ship row and column. 
-
-If the player row and column does not find a battleship on the computers hidden board, the message "Sorry you missed" is displayed and the cell of the displayed computer board is populated with a -.
-
-If the player row and column does find a battleship on the computers hidden board, the message "congratulations you have hit the battleship" is displayed and the cell of the displayed computer board is populated with an X.
+Suppose the player row and column find a battleship on the computer's hidden board. In that case, the message "Congratulations {username}, you hit a  battleship!" is displayed. The cell of the displayed computer board is populated with an X.
 
 The computers generated row and column are displayed.
 
-If the computer row and column does not find a battleship on the players board, the message "Phew the computer missed" is displayed and the cell of the players board is replaced with an -.
+If the computer row and column do not find a battleship on the player's board, the message "Yeyy, the computer missed!" is displayed. The cell of the player's board is replaced with an -.
 
-If the computer row and column does find a battleship on the players board, the message "your battleship has been hit" is displayed and the @ in the cell is replaced with an X.
+If the computer's row and column guess find a battleship on the player's board, "Oh no, your battleship has been hit!" is displayed. The @ in the cell is replaced with an X.
 
-After each turn, the number of turns remaining is displayed and control returns for the player to enter their next row and column if the turns are under 10.
+After each turn, the number of turns remaining is displayed, and control returns for the player to enter their next row and column if the turns are under 10.
 
 ### Future Features
-* Allow the user to select the board size
-* Allow the user to select the number of ships
-* Allow the user to position the ships themselves
-* Have ships larger than 1x1
-* Different game modes
-    * Not limited to 10 turns
-    * Option to select how many turns you would like
+In future features, the Ultimate Battleships game should contain:
+- Game difficulty
+  - Choosing the number of turns
+  - Choosing the number of ships
+  - Board size choice
+- Positioning the ships wherever the user wants
 
 ## Testing
 I have manually tested this project by doing the following:
