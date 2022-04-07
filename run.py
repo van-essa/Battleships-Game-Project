@@ -28,20 +28,22 @@ continue_playing_options = ["y", "yes", "n", "no"]
 # The colot to text and background
 # Code taken from Geeks for Geeks, see README
 def prRed(skk): print("\033[91m {}\033[00m" .format(skk))
- 
- 
+
+
 def prGreen(skk): print("\033[92m {}\033[00m" .format(skk))
- 
- 
+
+
 def prYellow(skk): print("\033[93m {}\033[00m" .format(skk))
- 
- 
+
+
 def prLightPurple(skk): print("\033[94m {}\033[00m" .format(skk))
 
 # This Code was taken from Mavens YouTube video, provided in README
 """
 Creates a board with letters for the columns and numbers for the rows
 """
+
+
 def print_board(board):
     print("  A B C D E F G H")
     print("  ---------------")
@@ -56,6 +58,8 @@ A random integer between 0 and 4 for ship_row and ship_column is created.
 It checks if "@" is already on the board, if so runs randomint until.
 there is an available space. When there is an available space update with "@".
 """
+
+
 def create_ships(board):
     for ship in range(5):
         ship_row, ship_column = randint(0, 7), randint(0, 7)
@@ -72,6 +76,8 @@ ship has been hit and updates board with "X". Else the computer_row
 and computer_column finds a blank space, and prints a message to the
 user to say the computer has missed and updates the board with "-"
 """
+
+
 def computer_guess(board):
     global computer_score
     computer_row, computer_column = randint(0, 7), randint(0, 7)
@@ -95,11 +101,14 @@ def computer_guess(board):
 
 # This Code was taken from Mavens YouTube video, provided in README
 """
-It asks the user to input the guesses for ship row and ship column locations
-and checks the input data for row is in range "12345" and for column is in range
-"ABCDE". Then, returns int for row - 1 to match index number, converts letters
+It asks the user to input the guesses for ship row and ship column
+locationsand checks the input data for row is in range "12345"
+and for column is in range "ABCDE". Then, returns int for
+row - 1 to match index number, converts letters
 to numbers for column index number.
 """
+
+
 def get_ship_location():
     row = input("Please enter a ship row 1-8\n")
     while row not in "12345678" or len(row) > 1 or row == "":
@@ -114,8 +123,11 @@ def get_ship_location():
     return int(row) - 1, letters_to_numbers[column]
 
 """
-If values entered not an interger between 1-5, an error message will be printed.
+If values entered not an interger between 1-5,
+an error message will be printed.
 """
+
+
 def validate_row(values):
     try:
         [int(value) for value in values]
@@ -132,6 +144,8 @@ def validate_row(values):
 """
 If values entered not in letters_to_numbers, an error message will be printed.
 """
+
+
 def validate_column(values):
     try:
         if values not in letters_to_numbers:
@@ -148,6 +162,8 @@ def validate_column(values):
 """
 Counts how many ships on the board have been hit "X"
 """
+
+
 def count_hit_ships(board):
     count = 0
     for row in board:
@@ -162,6 +178,8 @@ def count_hit_ships(board):
 """
 Run all start up functions
 """
+
+
 def main():
     create_ships(HIDDEN_BOARD)
     create_ships(USER_BOARD)
@@ -180,6 +198,8 @@ def main():
 If the values entered are not in continue_playing_options, an error
 message will be printed.
 """
+
+
 def validate_continue_playing(values):
     try:
         if values not in continue_playing_options:
@@ -199,6 +219,8 @@ def validate_continue_playing(values):
 Runs the game with 10 turns
 When turns = 0 game is over
 """
+
+
 def run_game():
     turns = 10
     global user_score
@@ -253,7 +275,8 @@ def run_game():
                 continue
             elif continue_playing == "n" or continue_playing == "no":
                 print(
-                    "You have decided to finish the game, the game is now over.")
+                    "You have decided to finish the game,"
+                    "the game is now over.")
                 break
             else:
                 print("Sorry, please enter y/n")
