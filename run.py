@@ -80,14 +80,14 @@ def computer_guess(board):
         computer_row = randint(0, 7)
         computer_column = randint(0, 7)
     elif USER_BOARD[computer_row][computer_column] == "@":
-        prRed(f"{username}, your battleship has been hit!")
+        prRed(f"Oh no, {username}, your battleship has been hit!")
         prGreen(
             f"The computer guessed row {computer_row +1}"
             f" and column {numbers_to_letters[computer_column]}")
         USER_BOARD[computer_row][computer_column] = "X"
         computer_score += 1
     else:
-        prGreen(f"Phew {username}, the computer missed!")
+        prGreen(f"Yeyy {username}, the computer missed!")
         prGreen(
             f"The computer guessed row {computer_row +1}"
             f" and column {numbers_to_letters[computer_column]}")
@@ -165,8 +165,11 @@ Run all start up functions
 def main():
     create_ships(HIDDEN_BOARD)
     create_ships(USER_BOARD)
-    print("Welcome to Battleships")
-    print("You have 10 turns to find all of the battleships")
+    print("------------------------------------------------")
+    print("Welcome to Ultinamte Battleships!")
+    print("Board Size: 8. Number of ships: 5")
+    print("You have 10 turns to find all of the battleships.")
+    print("------------------------------------------------")
     global username
     username = input("Please enter your name:\n")
     while username == "" or username == " ":
@@ -209,33 +212,33 @@ def run_game():
         if GUESS_BOARD[row][column] == "-" or GUESS_BOARD[row][column] == "X":
             prRed("You have already guessed that")
         elif HIDDEN_BOARD[row][column] == "@":
-            prYellow(f"Congratulations {username}, you have hit the battleship")
+            prYellow(f"Congratulations {username}, you hit a  battleship!")
             GUESS_BOARD[row][column] = "X"
             turns -= 1
             computer_guess(USER_BOARD)
             user_score += 1
         else:
-            prRed(f"Sorry {username}, you missed")
+            prRed(f"Oh, no {username}, you missed!")
             GUESS_BOARD[row][column] = "-"
             turns -= 1
             computer_guess(USER_BOARD)
         if count_hit_ships(GUESS_BOARD) == 5:
             prYellow(
                 f"Congratulations {username}, "
-                "you have sunk all of the battleships")
-            print("The game is now over")
+                "you have sunk all of the battleships!")
+            print("The game is now over.")
             break
-        prLightPurple("You have " + str(turns) + " turns remaining")
+        prLightPurple("You have " + str(turns) + " turns remaining.")
         prYellow(f"{username}'s Score: {user_score}"
                  f" Computer's Score: {computer_score}")
         if turns == 0:
             prRed(
-                f"Sorry {username}, you ran out of turns, the game is over")
+                f"You ran out of turns {username}, the game is over.")
             break
         if count_hit_ships(USER_BOARD) == 5:
             prRed(
-                f"Sorry {username}, the computer"
-                " has sunk all of your battleships")
+                f"Oh, no {username}, the computer"
+                " has sunk all of your battleships!")
             break
         if count_hit_ships(GUESS_BOARD) < 5:
             continue_playing = input(
@@ -250,10 +253,10 @@ def run_game():
                 continue
             elif continue_playing == "n" or continue_playing == "no":
                 print(
-                    "You have decided to finish playing, the game is now over")
+                    "You have decided to finish the game, the game is now over.")
                 break
             else:
-                print("Sorry, please can you enter y/n")
+                print("Sorry, please enter y/n")
                 continue_playing = input(
                     "Do you want to continue playing? y/n \n")
 
