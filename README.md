@@ -7,7 +7,7 @@ The users have 10 turns to find all of the computer’s battleships before the c
 ![](images/pythonproject.png)
 
 
-You can view the project [here](https://battleshipsgame-project.herokuapp.com/)
+You can view the project [here](https://battleshipsgame-project.herokuapp.com/).
 
 ### How to play
 Ultimate Battleship is based on the classic pen-and-paper game. You can read more about it in [Wikipedia](https://en.wikipedia.org/wiki/Battleship_(game)).
@@ -16,15 +16,16 @@ The player's ships are located on the first board, which the computer needs to f
 The second board is the computer's board, where the player's guesses will be shown. 
 The ship locations will never be revealed unless the player hits the battleships.
 The symbols that will display are
-- "-"When the player or the computer missed the battleship
-- "X "when a battleship has been hit by the player or the computer.
+- "-" When the player or the computer missed the battleship
+- "X" When a battleship has been hit by the player or the computer
+
 The player and the computer have 10 turns to find and hit all the ships. Whoever hits and syncs all opponent's battleships first is the winner.
 If no one managed to synch all the battleships in the 10 rounds, no one wins, and the game is over.
 
 ## User Stories
 Ultimate Battleships was created using Python, where the user challenges the computer. The following points describe the display of the game:
 * Welcome message to the user, displaying the number of ships, board size and the number of turns
-* Following by asking the user to input his/her name
+* Following by asking the user to input their name
 * The user's board is displayed with their battleship locations for the computer to guess
 * The computer's board is displayed for the user to guess the computer's battleship locations
 * Then the user inputs their guess for row
@@ -33,7 +34,7 @@ Ultimate Battleships was created using Python, where the user challenges the com
 * Ensuring their input is validated
 * User's guesses are checked against the hidden board
 * A message is displayed to the user, mentioning if their guess was a hit or a miss
-* Th computer's guesses are randomly generated
+* The computer's guesses are randomly generated
 * The computer's guesses are also checked against the user's board
 * A message is displayed to the user, mentioning if the computer guess was a hit or miss
 * The user's and computer's scores are calculated and printed to the terminal
@@ -47,7 +48,7 @@ Ultimate Battleships was created using Python, where the user challenges the com
 
 ## Features
 ### Existing Features
-The usera has to enter their name first.
+The user has to enter their name first.
 
 
 ![](images/entername.png)
