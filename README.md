@@ -48,16 +48,27 @@ Ultimate Battleships was created using Python, where the user challenges the com
 ## Features
 ### Existing Features
 The usera has to enter their name first.
+
+
 ![](images/entername.png)
+
+
 A random board is displayed for the user's board and place their ships. A random board is shown with hidden ships for the computer, so the user cannot visualise it. 
+
+
 ![](images/2Boards.png)
+
+
 Then, the user can start playing against the computer and has to add Rows Number and Column Letter. Then the computer randomly chooses its coordination. During the game, the scores are maintained, and validation and error-checking are displayed whiles:
 - The User cannot enter guesses outside of the board
 - The User cannot enter the same guesses twice
 - The User must enter a number between 1-8 for rows
 - The User must enter a letter between A-H for columns
 
+
 ![](images/rowcolumn.png)
+
+
 
 In this game of Ultimate Battleships, both the player and computer have up to ten turns to find the opponent's five battleships. Whoever manages to sink the five battleships before ten turns is the winner. If no one syncs them all in ten turns, then the game is over, and there is no winner.
 
@@ -70,9 +81,13 @@ Each battleship occupies one cell, and before the game starts, the computer gene
 The player enters a ship row and column, and the computer generates a ship row and column. 
 
 If the player row and column do not find a battleship on the hidden computer board, the message "Oh, no, you missed!" is displayed. The cell of the displayed computer board is populated with a -.
+
+
 ![](images/rowcolumn.png)
 
 Suppose the player row and column find a battleship on the computer's hidden board. In that case, the message "Congratulations, you hit a  battleship!" is displayed. The cell of the displayed computer board is populated with an X.
+
+
 ![](images/hittheship.png)
 
 The computers generated row and column are displayed.
@@ -101,7 +116,7 @@ I have manually tested this project by doing the following:
 I initially wanted to create a smaller grid (5*5) with three ships and seven rounds when using Mavens code. When I changed to that numbers, the game was not running. After six tries to understand what was wrong, I changed it to what Maven referred to in his video: eight rows and columns, five ships and ten turns. 
 
 ### Remaining Bugs
-No bugs rmaining.
+No bugs remaining.
 
 ### Validator Testing
 [PEP8](http://pep8online.com/checkresult)
