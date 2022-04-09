@@ -137,6 +137,6 @@ This project was deployed using Code Institute's mock terminal for Heroku.
 ## Credits
 * Code Institute for the deployment terminal
 * [Wikipedia](https://en.wikipedia.org/wiki/Battleship_(game)) for the details of the Battleships game
-* Mavens YouTube video, implementing a single player in Battleship using python. The YouTube video is called _How to Code Battleship_ and can be watched [here](https://www.youtube.com/watch?v=tF1WRCrd_HQ). I used the layout of the code that is available [here.](https://replit.com/@lucygbrown/battleships#main.py)
+* Mavens YouTube video, implementing a single player in Battleship using python. The YouTube video is called _How to Code Battleship in Python - Single Player Game_ and can be watched [here](https://www.youtube.com/watch?v=tF1WRCrd_HQ). I used the layout of the code that is available [here.](https://replit.com/@lucygbrown/battleships#main.py)
 * [PEP8](http://pep8online.com/checkresult) for checking my code for PEP8 requirements
 * [Geeks for Geeks](https://www.geeksforgeeks.org/print-colors-python-terminal/) for adding colour to some of the text in the game
