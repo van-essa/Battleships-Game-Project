@@ -47,11 +47,17 @@ Ultimate Battleships was created using Python, where the user challenges the com
 
 ## Features
 ### Existing Features
-A random board is displayed for the user's board and place their ships. A random board is shown with hidden ships for the computer, so the user cannot visualise it. Then, the user can start playing aginst the computer and has to add their Name, Rows Number and Column Letter. Then the computer randomly chooses its coordination. During the game, the scores are maintained, and validation and error-checking are displayed whiles:
+The usera has to enter their name first.
+![](images/entername.png)
+A random board is displayed for the user's board and place their ships. A random board is shown with hidden ships for the computer, so the user cannot visualise it. 
+![](images/2Boards.png)
+Then, the user can start playing against the computer and has to add Rows Number and Column Letter. Then the computer randomly chooses its coordination. During the game, the scores are maintained, and validation and error-checking are displayed whiles:
 - The User cannot enter guesses outside of the board
 - The User cannot enter the same guesses twice
 - The User must enter a number between 1-8 for rows
 - The User must enter a letter between A-H for columns
+
+![](images/rowcolumn.png)
 
 In this game of Ultimate Battleships, both the player and computer have up to ten turns to find the opponent's five battleships. Whoever manages to sink the five battleships before ten turns is the winner. If no one syncs them all in ten turns, then the game is over, and there is no winner.
 
@@ -64,8 +70,10 @@ Each battleship occupies one cell, and before the game starts, the computer gene
 The player enters a ship row and column, and the computer generates a ship row and column. 
 
 If the player row and column do not find a battleship on the hidden computer board, the message "Oh, no, you missed!" is displayed. The cell of the displayed computer board is populated with a -.
+![](images/rowcolumn.png)
 
-Suppose the player row and column find a battleship on the computer's hidden board. In that case, the message "Congratulations {username}, you hit a  battleship!" is displayed. The cell of the displayed computer board is populated with an X.
+Suppose the player row and column find a battleship on the computer's hidden board. In that case, the message "Congratulations, you hit a  battleship!" is displayed. The cell of the displayed computer board is populated with an X.
+![](images/hittheship.png)
 
 The computers generated row and column are displayed.
 
@@ -85,128 +93,20 @@ In future features, the Ultimate Battleships game should contain:
 
 ## Testing
 I have manually tested this project by doing the following:
-* Run the code through the PEP8 validator and confirmed there are no problems
+* Run the code through the PEP8 validator and confirm there are no problems
+* Given invalid inputs: strings when numbers are expected, out of bonus inputs, same input twice, no input
 * Tested in the terminal on Gitpod and the Code Institute Heroku Terminal
 
-When the game is loaded the game name, welcome message, game instructions and user's name input field are displayed correctly.
-* Display game name
-* Display game info
-* User inputs name
-
-![loading screen](https://user-images.githubusercontent.com/85178695/137600517-3cb4a091-9244-4288-bf94-72c3800a2bef.png)
-
-When the user inputs their username this is checked for empty data input and an error message will appear until a name has been entered.
-
-![username validation](https://user-images.githubusercontent.com/85178695/143578964-288ae719-e172-4e44-993c-3beb8a113055.png)
-
-
-When the user inputs their name two boards are created, one for the user and their ships and another board for the computer which is blank for the user to guess the computers ships.
-* User board displayed with ship locations for the computer to guess
-* Computer board displayed for the user to guess the computers ship locations
-
-![game boards](https://user-images.githubusercontent.com/85178695/137600529-586d627d-6075-4b34-9905-8a19f32defe6.png)
-
-
-When the user inputs a row number this is validated to see if it is a number between 1-8. I have tested the validation by using a number outside of the range, a letter, a word, space and enter and the data validation error message displays until the correct input type has been entered.
-* User inputs guess for row
-* User input validated for correct input
-
-![row validation v2](https://user-images.githubusercontent.com/85178695/143579056-eb384ebc-b8e3-412b-a29b-ffbe92ab9514.png)
-
-
-When the user inputs a column letter this is validated to see if it is a letter between A-H. I have tested the validation by using a letter outside of the range, a word, a number, space and enter and the data validation error message displays until the correct input type has been entered.
-* User inputs guess for column
-* User input validated for correct input
-
-![column validation v2](https://user-images.githubusercontent.com/85178695/143579122-16351d9d-626b-4b65-905b-a885d2953972.png)
-
-
-Once the user has input the row and column coordinates, these are checked against the HIDDEN_BOARD to see if the user has hit or missed. A message is printed to the user with the hit or miss result. The computers guess is randomly generated and checked against the user's board and a message to the user is displayed with the hit or miss result. A message with the computers guess coordinates are printed to the user. The turns remaining is display as well as the user's and computer's scores. Message is displayed to the user asking if they want to continue playing.
-* User’s input coordinates are checked against the hidden board
-* Message to user to display if their guess was a hit or a miss
-* Computers guesses are randomly generated
-* Computers guesses are checked against the user board
-* Message to user to display if the computer guess was a hit or miss
-* User and computer scores calculated and printed to terminal
-* Turns remaining calculated and printed to the terminal
-* Continue playing option for the user to input y/n
-
-![end of round](https://user-images.githubusercontent.com/85178695/137600572-43b7c608-5873-44ec-9982-7387655dba42.png)
-
-
-The user's input for the continue playing option is validated to see if it is "y", "yes", "n" or "no". I have tested the validation by entering a letter, a word, space and enter and the data validation error message displays until the correct input type has been entered.
-
-![continue playing validation](https://user-images.githubusercontent.com/85178695/143579190-8425556c-decd-4bc0-81d1-f89daa831eeb.png)
-
-
-
-If the user inputs n or no a message is displayed and the game ends.
-
-![continue playing n](https://user-images.githubusercontent.com/85178695/137600586-248f40a6-0a6b-443f-a422-4801fbed9e5e.png)
-
-![continue playing no](https://user-images.githubusercontent.com/85178695/143579221-d74e9677-7fd6-4dd4-89f6-e992b26c043d.png)
-
-
-If the user inputs y or yes a message is display and the game continues.
-
-![continue playing y](https://user-images.githubusercontent.com/85178695/137600591-14a7bbde-da73-44bc-9131-24bab936e16f.png)
-
-![continue playing yes](https://user-images.githubusercontent.com/85178695/143579251-3a7c0977-0a17-4739-824f-01d8b19eeee4.png)
-
-
-When the user hits a ship the correct message is displayed and their score is incremented by 1.
-
-![computer ship been hit](https://user-images.githubusercontent.com/85178695/137600653-3d1313a8-949e-4bb9-bb05-a920c405de09.png)
-
-
-When the computer hits a ship the correct message is displayed and their score is incremented by 1.
-
-![user ship been hit](https://user-images.githubusercontent.com/85178695/137600661-2d48ca27-713f-48a7-9668-16053c994ee7.png)
-
-
-The users board and computer board are updated with the guesses and reprinted. The game continues until the user either quits, the user hits all 5 ships, the computer hits all 5 ships or the user has run out of turns.
-* Users board updated with hit or miss and re-printed
-* Computers board updated with hit or miss and re-printed
-
-![boards updated and reprinted](https://user-images.githubusercontent.com/85178695/137600701-634f9fee-f933-42a0-9022-9bcdad9c72f6.png)
-
-
-When the user hits all 5 ships a message is display and the game finishes.
-* If user has hit 5 ships display message for winning game and end game
-
-![user hit 5 ships](https://user-images.githubusercontent.com/85178695/137600704-afdeb5a8-fb5a-44df-8dc9-dfa84c66357e.png)
-
-
-In the github terminal I changed turns from 10 to 80 in the run_game function to test if the computer could win the game when not restricted to 10 turns. I was unable to test this successfully as there is a bug which has been documented in the bugs section.
-* If computer has hit 5 ships display message for losing game and end game
-
-
-* If user has run out of turns display message and end game
-
-![run out of turns](https://user-images.githubusercontent.com/85178695/137600717-cc0bd793-8a21-4dc2-87e7-34c8b035a52b.png)
-
-
 ### Bugs
-The computer guesses were not being updated on the user's board but I had noticed that I was not calling the correct variable names. This has now been corrected and the boards are being updated as expected.
+I initially wanted to create a smaller grid (5*5) with three ships and seven rounds when using Mavens code. When I changed to that numbers, the game was not running. After six tries to understand what was wrong, I changed it to what Maven referred to in his video: eight rows and columns, five ships and ten turns. 
 
-
-When the user had ran out of turns the continue playing option was being shown instead of the game ending. This was due to the continue playing if statement appearing first in the while loop and has now been fixed.
-
-![bug run out turns](https://user-images.githubusercontent.com/85178695/137642822-cbe2007e-4154-470f-8e53-52c62dd93559.png)
-
-
-When testing the game I have noticed that sometimes the computer guess is not generated and the messages are not printed to the screen. I have tested this several times and I have not been able to find any logic in why this is happening as it seems to be at random times. I have documented the testing I have completed so far in the file below.
-
-[testing_computer_guess_not_generated.txt](https://github.com/Lucy-Glanville-Brown/battleships/files/7360924/testing_computer_guess_not_generated.txt)
-
-
-![copmputer guess not generated](https://user-images.githubusercontent.com/85178695/137642829-9ce6ed20-8a12-4e4d-b3eb-90f12b1c5fff.png)
-
+### Remaining Bugs
+No bugs rmaining.
 
 ### Validator Testing
-PEP8
+[PEP8](http://pep8online.com/checkresult)
 
-![PEP8 Validator](https://user-images.githubusercontent.com/85178695/137600734-85b09ca6-42d9-41c9-b2a6-5976a06d6b98.png)
+![](images/pep8.png)
 
 
 ## Deployment
@@ -221,40 +121,7 @@ This project was deployed using Code Institute's mock terminal for Heroku.
 
 ## Credits
 * Code Institute for the deployment terminal
-* Knowledge Mavens for the YouTube video How to Code Battleship in Python - Single Player Game. [Knowledge Mavens Video](https://www.youtube.com/watch?v=tF1WRCrd_HQ)
-* The battleships text in ascii was created using an ascii generator found [here](https://patorjk.com/software/taag/#p=display&f=Doom&t=Battleships)
-* The battleship image in ascii was taken from [here](https://www.asciiart.eu/vehicles/navy)
-* After running the code through the PEP8 validator I had a lot of errors for the lines being too long which I found help on stack overflow [here](https://stackoverflow.com/questions/3346230/wrap-long-lines-in-python/18160132)
-* PEP8 validator error local-variable-referenced-before-assignment I also found help on stack overflow [here](https://stackoverflow.com/questions/10851906/python-3-unboundlocalerror-local-variable-referenced-before-assignment)
-* Another error I had after using PEP8 was that my if statement line was too long, I found help on stackoverflow and flake8rules
-[stackoverflow](https://stackoverflow.com/questions/5253348/very-long-if-statement-in-python)
-[flake8rules](https://www.flake8rules.com/rules/E129.html)
-
-
-## Acknowledgements
-The basic layout of the code was written by following along with the Knowledge Mavens YouTube video on How to Code Battleship in Python - Single Player. I used Repl to code along with the video and the original code can be found [here.](https://replit.com/@lucygbrown/battleships#main.py)
-
-I watched this video several times and made notes as I was going along to break down each step. This video was just for a single player so I have created another board which shows the users board with ships for the computer to guess, which makes this a two player game. I have also added data validation for the input of the row and column coordinates as well as a continue playing option. 
-
-The code that I have added is:
-* USER_BOARD
-* numbers_to_letters
-* user_score
-* computer_score
-* computer_guess(board)
-* validate_row(values)
-* validate_column(values)
-* main()
-    * Battleships ascii text
-    * Battleship ascii art
-    * username input
-* validate_continue_playing()
-* run_game()
-    * Updated the printed messages to f strings to include the user's name
-    * Print the USERS_BOARD
-    * Added computer_guess(USERS_BOARD) to the if statements for if the ship location was a hit or miss
-    * Added continue playing option and if statements
-
-
-
-My mentor Nishant Kumar suggested adding colour to the game which was found on Geeks for Geeks website [here.](https://www.geeksforgeeks.org/print-colors-python-terminal/)
+* [Wikipedia](https://en.wikipedia.org/wiki/Battleship_(game)) for the details of the Battleships game
+* Mavens YouTube video, implementing a single player in Battleship using python. The YouTube video is called _How to Code Battleship_ and can be watched [here](https://www.youtube.com/watch?v=tF1WRCrd_HQ). I used the layout of the code that is available [here.](https://replit.com/@lucygbrown/battleships#main.py)
+* [PEP8](http://pep8online.com/checkresult) for checking my code for PEP8 requirements
+* [Geeks for Geeks](https://www.geeksforgeeks.org/print-colors-python-terminal/) for adding colour to some of the text in the game
